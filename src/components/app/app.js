@@ -1,18 +1,22 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import {HomePage, CartPage} from '../pages';
+import ShopHeader from '../header';
 
 const App = () => {
     return(
-        <React.Fragment>
-            <Route 
-                path='/' 
-                component={HomePage} 
-                exact/>
-            <Route 
-                path='/cart' 
-                component={CartPage}/>
-        </React.Fragment>
+        <main role='main' className='container'>
+            <ShopHeader numItems={5} total={210}/>
+            <Switch>
+                <Route 
+                    path='/' 
+                    component={HomePage} 
+                    exact/>
+                <Route 
+                    path='/cart' 
+                    component={CartPage}/>
+            </Switch>
+        </main>
     )
 }
 
